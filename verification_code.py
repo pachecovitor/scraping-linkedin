@@ -18,5 +18,3 @@ def get_linkedin_verification_code():
     verification_code = ''.join(unhandled_verification_code)
 
     return verification_code
-
-teste = print(get_linkedin_verification_code())
