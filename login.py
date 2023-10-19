@@ -15,12 +15,12 @@ from settings import get_linkedin_credentials
 VERIFY_LOGIN_ID = "global-nav__primary-link"
 REMEMBER_PROMPT = 'remember-me-prompt__form-primary'
 
-def page_has_loaded(driver):
+def page_has_loaded(driver:str) -> str:
     page_state = driver.execute_script('return document.readyState;')
     return page_state == 'complete'
 
 
-def login(driver, timeout= 10):
+def login(driver:str, timeout:int= 10) -> None:
 
     LINKEDIN_EMAIL, LINKEDIN_PASSWORD = get_linkedin_credentials()
 

@@ -4,6 +4,8 @@ from selenium.webdriver.chrome.service import Service
 
 from login import login
 from search import search_companie_occupation_area, get_number_of_pages, get_companies_link
+from company import get_employees
+
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", False)
@@ -13,7 +15,10 @@ service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
 teste = login(driver=driver)
-teste2 = search_companie_occupation_area(driver=driver,occupation_area="celulose")
-pages = get_number_of_pages(driver=driver)
+teste2 = get_employees(driver=driver)
+print(teste2)
 
-get_companies_link(driver=driver,total_pages=pages,occupation_area="celulose")
+#teste2 = search_companie_occupation_area(driver=driver,occupation_area="celulose")
+#pages = get_number_of_pages(driver=driver)
+
+#get_companies_link(driver=driver,total_pages=pages,occupation_area="celulose")

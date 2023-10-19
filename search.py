@@ -11,11 +11,11 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from support import load_full_page
 
-def search_companie_occupation_area(driver, occupation_area, timeout=10):
+def search_companie_occupation_area(driver:str, occupation_area:list, timeout:int=10) -> None:
     driver.get(f'https://www.linkedin.com/search/results/companies/?keywords={occupation_area}&origin=SWITCH_SEARCH_VERTICAL')
     WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.CLASS_NAME, "search-global-typeahead__input")))
 
-def get_number_of_pages(driver):
+def get_number_of_pages(driver:str) -> int:
 
     load_full_page(driver=driver)
 
@@ -24,7 +24,7 @@ def get_number_of_pages(driver):
 
     return num_pages
 
-def get_companies_link(driver, total_pages, occupation_area):
+def get_companies_link(driver:str, total_pages:int, occupation_area:str) -> list:
 
     companies_link = []
 
